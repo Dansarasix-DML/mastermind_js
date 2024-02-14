@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+}
+
+body{
+    background: no-repeat top/100% url("../img/Sketch_houses_of_the_Critters.jpg");
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+header>img{
+    width: 15%;
+}
+
+.content{
+    margin: 0% 10%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 70vh;
+}
+
+.img1{
+    position: fixed;
+    width: 18%;
+    bottom: -8%;
+    right: -4%;
+}
+
+.img2{
+    position: fixed;
+    width: 18%;
+    bottom: -8%;
+    left: -4%;
+}
+
+.img3{
+    position: fixed;
+    width: 12%;
+    top: 0.75%;
+    right: 11%;
+}
+
+main{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 30px 50px;
+    background: rgba(255,255,255,0.5);
+    flex: 0.85 0;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.intento{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.part1{
+    display: flex;
+    gap: 10px;
+}
+
+.part2{
+    display: flex;
+    gap: 10px;
+}
+
+.part1>div{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 2px 2px;
+}
+
+.part2>div{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 2px 2px;
+}
+
+aside{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
+    background: rgba(255,255,255,0.5);
+    flex: 0.20 0;
+    border-radius: 10px
+}
+
+.set1, .set2{
+    margin: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.set1>div, .set2>div, .boton{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 2px 2px;
+}
+
+.iniciar, .cerrar{
+    cursor: pointer;
+}
+
+.victoria{
+    display: none;
+    flex-direction: column;
+    left: 40%;
+    top: 40%;
+    position: fixed;
+    background-color: #ffffffba;
+    width: 20%;
+    height: 140px;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    border-radius: 10px;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+    background-color: lightgreen;
+}
+
+.orange{
+    background: url("../img/dogday.png") no-repeat 3%, orange;
+    background-size: 65px, 65px, 100%;
+    background-position: -12px 3px;
+}
+
+.limegreen{
+    background: url("../img/Hoppy.png") no-repeat 3%, limegreen;
+    background-size: 65px, 65px, 100%;
+    background-position: -11px -13px;
+}
+
+.deepskyblue{
+    background: url("../img/bubba.png") no-repeat 3%, deepskyblue;
+    background-size: 65px, 65px, 100%;
+    background-position: -15px -8px;
+}
+
+.crimson{
+    background: url("../img/bobby.png") no-repeat 3%, crimson;
+    background-size: 65px, 65px, 100%;
+    background-position: -16px -2px;
+}
+
+.yellow{
+    background: url("../img/KickinChicken.png") no-repeat 3%, yellow;
+    background-size: 65px, 65px, 100%;
+    background-position: -13px -5px;
+}
+
+.indigo{
+    background: url("../img/catnap.png") no-repeat 3%, indigo;
+    background-size: 65px, 65px, 100%;
+    background-position: -14px -2px;
+}
+
+.aqua{
+    background: url("../img/CraftyCorn.png") no-repeat 3%, aqua;
+    background-size: 65px, 65px, 100%;
+    background-position: -9px -5px;
+}
+
+.hotpink{
+    background: url("../img/Picky.png") no-repeat 3%, hotpink;
+    background-size: 65px, 65px, 100%;
+    background-position: -9px -1px;
+}
+
+.black{
+    background: black;
+}
+
+.white{
+    background: white;
+}
+
+.znone{
+    background-color: darkgray;
+}
