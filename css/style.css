@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+iframe{
+    display: none;
+}
+
 body{
     background: no-repeat top/100% url("../img/Sketch_houses_of_the_Critters.jpg");
 }
@@ -121,12 +125,12 @@ aside{
 .victoria{
     display: none;
     flex-direction: column;
-    left: 40%;
-    top: 40%;
+    left: 35%;
+    top: 24%;
     position: fixed;
     background-color: #ffffffba;
-    width: 20%;
-    height: 140px;
+    width: 25%;
+    height: 360px;
     align-items: center;
     justify-content: center;
     font-size: xx-large;
@@ -200,4 +204,8 @@ aside{
 
 .znone{
     background-color: darkgray;
+}
+
+#audio1{
+    display: none;
 }

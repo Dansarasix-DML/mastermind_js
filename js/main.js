@@ -26,7 +26,7 @@ const mastermind = (function () {
         const coloresRestantes = [...objetivo];
 
         intento.forEach((color, index) => {
-            if (color === objetivo[index]) {
+            if (color === objetivo[index] && coloresRestantes.includes(color)) {
                 sol.push("black");
                 coloresRestantes.splice(coloresRestantes.indexOf(color), 1);
             } else if (coloresRestantes.includes(color)) {
@@ -43,7 +43,6 @@ const mastermind = (function () {
     }
 
     init = function(){
-
         console.log(`
             #################################################
             ########### Bienvenido al MasterMind ############
@@ -82,6 +81,8 @@ const mastermind = (function () {
         buttons.forEach(button => button.removeEventListener("click", giveColor));
 
         document.querySelector(".victoria").style.display = "flex";
+
+        initSound2();
     }
     
     const giveColor = function () {
@@ -176,9 +177,15 @@ const mastermind = (function () {
         document.querySelector(".cerrar").addEventListener("click", () => document.querySelector(".victoria").style.display = "none");
     }
 
+    const initSound = () => {
+        document.querySelector(".head1").addEventListener("click", () => document.querySelector(".audio1").play());
+    }
+
+    const initSound2 = () => document.querySelector(".audio2").play()
+
     const iniciar = function() {
         const cloneIntento = document.querySelector(".intento").cloneNode(true);
-        
+        initSound();
         behaviourButtons();
         behaviourDivs();
         behaviourConf(cloneIntento);
