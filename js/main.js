@@ -1,6 +1,6 @@
 /**
  * @author Daniel Marín López
- * @version 1.00c
+ * @version 1.01a
  */
 
 /**
@@ -25,7 +25,7 @@ const mastermind = (function () {
      * Si todas las bolas son negras saldrá el mensaje
      * de victoria en la consola.
      */
-    comprobar = function(intento){
+    const comprobar = function(intento){
 
         if (intento.length !== 4) {
             console.log("DEBES METER MÁS/MENOS COLORES");
@@ -57,7 +57,7 @@ const mastermind = (function () {
      * Función que inicializa el array objetivo con colores
      * aleatorios que se pueden repetir
      */
-    init = function(){
+    const init = function(){
         console.log(`
             #################################################
             ########### Bienvenido al MasterMind ############
@@ -76,7 +76,7 @@ const mastermind = (function () {
      * ADVERTENCIA: ESTA FUNCIÓN NO SE DEBERÍA
      * LLAMAR EN LA VERSIÓN FINAL.
      */
-    mostrar = function () {
+    const mostrar = function () {
         console.log(`Tu objetivo es: ${objetivo}`);
     }
 
@@ -88,7 +88,8 @@ const mastermind = (function () {
         init: init,
         comprobar: comprobar,
         mostrar: mostrar,
-        COLORES: COLORES
+        COLORES: COLORES,
+        minombre: "daniel"
     };
 
 })()
@@ -99,10 +100,7 @@ const mastermind = (function () {
      * y hace visible el mensaje de victoria.
      */
     const victoria = () => {
-        let set1 = document.querySelector(".set1").getElementsByTagName("div");
-        let set2 = document.querySelector(".set2").getElementsByTagName("div");
-
-        const buttons = [...set1, ...set2];
+        const buttons = document.querySelectorAll(".set1>div, .set2>div");
 
         buttons.forEach(button => button.removeEventListener("click", giveColor));
 
@@ -124,7 +122,7 @@ const mastermind = (function () {
         const intento = intentos.find(intento => intento.getAttribute("data-flag") === "0");
 
         if (intento) {
-            let cells = [...intento.querySelector(".part1").querySelectorAll("div")];
+            let cells = [...intento.querySelectorAll(".part1>div")];
             const divToColor = cells.find(div => !div.getAttribute("data-color"));
     
             if (divToColor) {
@@ -149,7 +147,7 @@ const mastermind = (function () {
      * Función para dar comportamiento a las casillas iniciales.
      */
     const behaviourDivs = () => {
-        let cells = [...document.querySelector(".part1").querySelectorAll("div")];
+        let cells = [...document.querySelectorAll(".part1>div")];
 
         cells.forEach(div => div.addEventListener("click", deleteColor));
     }
@@ -165,8 +163,8 @@ const mastermind = (function () {
      * @returns boolean
      */
     const comprobación = (intento, colors) => {
-        let cells = [...intento.querySelector(".part2").querySelectorAll("div")];
-        const resultado = comprobar(colors);
+        let cells = [...intento.querySelectorAll(".part2>div")];
+        const resultado = mastermind.comprobar(colors);
         cells.forEach((div, i) => {
             div.setAttribute("data-color", resultado[i]);
             div.classList.add(resultado[i]);
@@ -199,13 +197,13 @@ const mastermind = (function () {
             let intentos = [...document.querySelectorAll(".intento")];
             
             let newClone = clone.cloneNode(true);
-            let newCells = [...newClone.querySelector(".part1").querySelectorAll("div")];
+            let newCells = [...newClone.querySelectorAll(".part1>div")];
 
             const intento = intentos.find(intento => intento.getAttribute("data-flag") === "0");
 
             if (intento) {
                 let colors = [];
-                let cells = [...intento.querySelector(".part1").querySelectorAll("div")];
+                let cells = [...intento.querySelectorAll(".part1>div")];
     
                 if (cells.every(div => !!div.getAttribute("data-color"))) {
                     cells.forEach(div => {
@@ -233,10 +231,7 @@ const mastermind = (function () {
      * botones de colores
      */
     const behaviourButtons = () => {
-        let set1 = document.querySelector(".set1").getElementsByTagName("div");
-        let set2 = document.querySelector(".set2").getElementsByTagName("div");
-
-        const buttons = [...set1, ...set2];
+        const buttons = document.querySelectorAll(".set1 div, .set2 div");
 
         buttons.forEach(button => button.addEventListener("click", giveColor));
     }
@@ -272,7 +267,7 @@ const mastermind = (function () {
         behaviourDivs();
         behaviourConf(cloneIntento);
         behaviouVictory();
-        init();
+        mastermind.init();
 
     }
 
